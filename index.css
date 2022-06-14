@@ -139,7 +139,7 @@ form {
 
 /* mobile */
 
-@media screen and (max-width:500px) {
+m @media screen and (max-width:500px) {
     .container {
         width: 90%;
         margin: 0 auto;
