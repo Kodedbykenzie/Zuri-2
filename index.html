@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Intro component with sign up form</title>
+    <link rel="stylesheet" href="index.css">
+
+    <style>
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+        }
+        
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="heading">
+                Learn to code by
+                <br> watching others
+            </div>
+            <p class="description">
+                See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers think is invaluable.
+            </p>
+        </div>
+        <div class="right">
+            <div class="box" align="center">
+                Try it free 7 <span class="secondary"> days then $20/mo. thereafter</span>
+            </div>
+            <form action="" method="post">
+                <div class="form-group">
+                    <input type="text" placeholder="First Name" name="fname">
+                    <div class="error"><img src="icon-error.svg" alt=""></div>
+                    <div class="error-message"> <i>First Name cannot be empty</i></div>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Last Name" name="lname">
+                    <div class="error"><img src="icon-error.svg" alt=""></div>
+                    <div class="error-message"> <i>Last Name cannot be empty</i> </div>
+
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email Address" name="emailId">
+                    <div class="error"><img src="icon-error.svg" alt=""></div>
+                    <div class="error-message"> <i>Looks like this is not an email</i> </div>
+
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="password" name="password">
+                    <div class="error"><img src="icon-error.svg" alt=""></div>
+                    <div class="error-message"> <i>Password cannot be empty</i> </div>
+
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn">
+            Claim your free trial 
+          </button>
+                </div>
+                <div class="terms">
+                    By clicking the button, you are agreeing to our <span class="highlight">Terms and Services .</span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p class="attribution">
+            Coded by <a href="#">Mozia Precious Chibundu &#10083;</a>.
+        </p>
+    </footer>
+</body>
+<script>
+    const submitBtn = document.querySelector(".btn");
+    submitBtn.addEventListener('click', validateForm);
+
+    function removeStyle(a, b) {
+        a.style.visibility = 'hidden';
+        b.style.visibility = 'hidden';
+    }
+
+
+    function validateForm(e) {
+        e.preventDefault();
+        // inputs 
+        const fname = document.getElementsByName("fname");
+        const lname = document.getElementsByName("lname");
+        const email = document.getElementsByName("emailId");
+        const password = document.getElementsByName("password");
+
+        if (!fname[0].value) {
+            const error = fname[0].nextElementSibling;
+            const error_message = fname[0].nextElementSibling.nextElementSibling;
+            error.style.visibility = "visible";
+            error_message.style.visibility = "visible";
+
+            setTimeout(() => {
+                removeStyle(error, error_message)
+            }, 1500);
+
+        }
+
+        if (!lname[0].value) {
+            const error = lname[0].nextElementSibling;
+            const error_message = lname[0].nextElementSibling.nextElementSibling;
+            error.style.visibility = "visible";
+            error_message.style.visibility = "visible";
+            setTimeout(() => {
+                removeStyle(error, error_message)
+            }, 1500);
+        }
+
+
+        if (email[0].value) {
+            const id = email[0].value;
+            if (id.indexOf('@') === -1) {
+                const error = email[0].nextElementSibling;
+                const error_message = email[0].nextElementSibling.nextElementSibling;
+                error.style.visibility = "visible";
+                error_message.style.visibility = "visible";
+            }
+            setTimeout(() => {
+                removeStyle(error, error_message)
+            }, 1500);
+        }
+
+        if (!password[0].value) {
+            const error = password[0].nextElementSibling;
+            const error_message = password[0].nextElementSibling.nextElementSibling;
+            error.style.visibility = "visible";
+            error_message.style.visibility = "visible";
+            setTimeout(() => {
+                removeStyle(error, error_message)
+            }, 1500);
+        }
+    }
+</script>
+
+</html>
